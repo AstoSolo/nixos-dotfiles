@@ -1,0 +1,235 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 2,
+    "margin-left": 0,
+    "margin-right": 0,
+
+
+// Modules
+    "modules-left": [
+        "clock",
+        "mango/window"
+    ],
+
+    "modules-center": [
+        "mango/workspaces",
+        "mango/layout"
+    ],
+
+    "modules-right": [
+        "group/expand",
+        "tray",
+        "mango/language",
+        "bluetooth",
+        "network",
+        "battery",
+        "custom/logout"
+    ],
+
+    "group/expand": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false,
+            "children-class": "drawer-child"
+        },
+        "modules": [
+            "custom/expand-icon",
+            "backlight",
+            "idle_inhibitor",
+            "cpu",
+            "memory",
+            "disk",
+            "temperature",
+            "wireplumber#source",
+            "wireplumber#sink"
+        ]
+    },
+
+    "custom/expand-icon": {
+        "format": " ",
+        "tooltip": false
+    },
+
+
+// Modules configuraton
+    // Left
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a, %b %d - %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+		        "mode"             : "year",
+		        "mode-mon-col"     : 3,
+		        "weeks-pos"        : "right",
+		        "first-day-of-week": 1,
+		        "on-scroll"        : 1,
+		        "on-click-right"   : "mode",
+		        "format": {
+			        "months":     "<span color='#ffead3'><b>{}</b></span>",
+			        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+			        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+			        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+		        }
+        }
+    },
+
+    "mango/window": {
+        "max-length": 30,
+        "icon": true,
+        "icon-size": 16,
+
+      	"rewrite": {
+		        //"(.*) - Mozilla Firefox": "🌎 $1",
+		        //"(.*) - zsh": "> [$1]"
+	      }
+    },
+
+    // Center
+    "mango/workspaces": {
+        "format": "{icon}",
+        "hide-empty": true,
+        "on-click": "activate",
+        "on-click-right": "toggle",
+        "overview-label": "Overview 󰗘"
+
+    },
+    
+    "mango/layout": {
+      "format": "",
+      "format-T": " ",
+      "format-S": " ",
+      "format-M": "󰕰 ",
+      "format-G": "󰝘 "
+    },
+
+
+    // Right
+
+
+    "tray": {
+    	"icon-size": 21,
+	    "spacing": 10,
+
+      "ignore-list": [
+          "blueman"
+      ]
+    },
+
+
+    "backlight": {
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-icons": ["󱩎", "󰛨"],
+        "tooltip": false
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+	      "format-alt": "{timeleft}/{timeout} {icon}",
+	      "format-icons": {
+		        "activated": " ",
+		        "deactivated": " "
+	      },
+	      "timeout": 480,
+	      "dynamic-timeouts": true,
+	      "timeout-step": 10
+    },
+
+
+    "cpu": {
+      "format": " " 
+    },
+    "memory": {
+        "format": " "
+    },
+    "disk":{
+        "format": " "
+    },
+      
+    "mango/language": {
+        "format": "{short}"
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-on": "󰂯",
+        "format-off": "󰂲",
+        "format-connected": "󰂱 ",
+         
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
+    },
+
+    "wireplumber#sink": {
+        "format": "{icon}",
+        "tooltip-format": "",
+        "format-muted": " ",
+        "format-icons": [" ", " ", " "],
+        "on-click": "helvum",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5
+    },
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "",
+        "format-muted": " ",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "scroll-step": 5
+    },
+
+    "network": {
+    "interval": 15,
+        "format-ethernet": " ",
+        "format-wifi": "\uf1eb ",
+        "format-disconnected": " ",
+
+        "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+        "format-linked": "\uf059 No IP {ifname}",
+	      "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+	      "tooltip-format-ethernet": "{ifname}  ",
+	      "tooltip-format-disconnected": "Disconnected",
+
+        "format-alt": "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}"
+     },
+
+    "battery": {
+        "format": "{icon}",
+        "format-alt": "{capacity}% {icon}",
+        "format-icons": {
+		        "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+          	"charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+        }
+    },
+
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "default": ["", " ", " "]
+        }
+    },
+
+    "custom/logout": {
+        /*"format": "<span foreground='#7EBAE4'>󱄅</span>{}",*/
+        "format": "󱄅",
+        "icon-size": 16,
+        "tooltip": false,
+        "on-click": "wlogout"
+    }
+}

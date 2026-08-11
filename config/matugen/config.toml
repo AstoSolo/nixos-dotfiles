@@ -1,0 +1,19 @@
+[config]
+reload_apps = true
+
+
+[templates.mango]
+input_path = '~/.config/matugen/templates/mango.conf'
+output_path = '~/.config/mango/colors.conf'
+# post_hook = 'mmsg -d reload_config' didnt work
+
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/themes/Matugen.conf'
+post_hook = "kitty +kitten themes --reload-in=all Matugen"

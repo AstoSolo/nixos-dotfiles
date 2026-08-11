@@ -1,0 +1,132 @@
+@import "colors.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  min-height: 0;
+  border-radius: 0px 0px 8px 8px;
+  border: none;
+  text-shadow: none;
+  transition: none;
+  box-shadow: none;
+}
+
+window#waybar {
+  background: @background;
+  font-family: "Nerd Fonts Jetbrains Mono";
+  font-size: 11pt;
+  font-weight: bold;
+
+}
+
+#clock {
+  background-color: @surface_container_high;
+  color: @primary_fixed;
+  border-radius: 15px 8px 15px 8px;
+  padding: 4px 10px;
+  margin: 4px 2px;
+}
+
+#window {
+  background-color: @surface_container;
+  color: @on_surface;
+  border-radius: 15px 8px 15px 8px;
+  padding: 4px 10px;
+  margin: 4px 2px;
+}
+
+#workspaces,
+#layout,
+#tray,
+#language,
+#bluetooth,
+#network,
+#battery,
+#custom-logout {
+  background-color: @surface_container;
+  color: @on_surface;
+  border-radius: 8px;
+  padding: 2px 6px;
+  margin: 4px 2px;
+}
+
+/* group */
+#backlight,
+#idle_inhibitor,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#wireplumber {
+  background-color: @surface_container;
+  color: @on_surface;
+  font-size: 9pt;
+  border-radius: 8px;
+  padding: 2px 6px;
+  margin: 6px 2px;
+}
+
+
+/* === Workspaces === */
+#workspaces button {
+  color: @on_surface_variant;
+  background-color: transparent;
+  border-radius: 6px;
+  padding: 1px 8px;
+  margin: 1px;
+}
+
+#workspaces button.active {
+  background-color: @primary;
+  color: @on_primary_fixed;
+}
+
+#workspaces button:hover {
+  background-color: @secondary_container;
+  color: @on_primary_fixed;
+}
+
+#workspaces button.urgent {
+  background-color: #ef5e5e;
+  color: #282828;
+}
+
+#workspaces button.overview {
+  color: @on_surface;
+}
+
+/* === Logout === */
+#custom-logout {
+  font-size: 16px;
+  padding: 2px 8px 2px 4px;
+  margin: 4px 2px;
+}
+
+#custom-logout:hover {
+  background-color: @surface_container_high;
+}
+
+#tray{
+  background-color: @surface_container;
+  color: @on_surface;
+  padding: 4px 10px;
+  margin: 4px 2px;
+
+}
+
+#custom-expand-icon {
+  color: @on_surface_variant;
+  padding: 0px 0px 0px 10px;
+}
+
+tooltip {
+    background-color: @color-surface-highest;
+    color: @color-on-surface;
+    border: 1px solid @color-outline-variant;
+    border-radius: 12px;
+}
+
+
+
+
+

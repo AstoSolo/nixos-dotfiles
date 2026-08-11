@@ -1,0 +1,199 @@
+* {
+    font-family: "Nerd Fonts Jetbrains Mono";
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    min-height: 0;
+}
+
+/* ===== Material 3 Expressive — Green / Dark Grey ===== */
+
+/* Surfaces */
+@define-color color-bg                   #121412; /* surface */
+@define-color color-surface-container    #1C1F1C;
+@define-color color-surface-container-hi #262A26;
+@define-color color-surface-highest      #2E322E;
+@define-color color-on-surface           #E2E3DE;
+@define-color color-on-surface-variant   #C3C8C0;
+
+/* Primary — Green */
+@define-color color-primary              #7BDB8F;
+@define-color color-primary-container    #0A3919;
+@define-color color-on-primary-container #00210A;
+@define-color color-primary-fixed        #8EEFA2;
+
+/* Secondary — muted olive-green */
+@define-color color-secondary            #B8CCB4;
+@define-color color-secondary-container  #28331F;
+
+/* Neutral accents */
+@define-color color-outline              #8B938A;
+@define-color color-outline-variant      #3A3F3A;
+@define-color color-scrim                #0D0F0D;
+
+/* Status */
+@define-color color-warning              #F2C572;
+@define-color color-critical             #F2A79B;
+
+/* ===== Base ===== */
+
+window#waybar {
+    background: @color-bg;
+}
+
+/* ===== Unified module capsule — one background for everything ===== */
+
+#clock,
+#window,
+#workspaces,
+#layout,
+#tray,
+/*group start*/
+#backlight,
+#idle_inhibitor,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#wireplumber,
+/*group end*/
+#language,
+#bluetooth,
+#network,
+#battery,
+#custom-logout {
+    background-color: @color-surface-container;
+    color: @color-on-surface;
+    padding: 4px 10px;
+    margin: 4px 3px;
+}
+
+#custom-expand-icon{
+    color: @color-on-surface;
+    padding: 0px 0px 0px 10px;
+}
+
+
+/* ===== Clock — green text on the shared background ===== */
+
+#clock {
+    color: @color-primary-fixed;
+    padding: 4px 18px;
+}
+
+/* ===== Temperature ===== */
+
+#temperature {
+    color: @color-on-surface-variant;
+}
+
+#temperature.critical {
+    color: @color-critical;
+}
+
+/* ===== Workspaces (ext/workspaces) ===== */
+
+#workspaces {
+    padding: 2px 6px;
+}
+
+#workspaces button {
+    color: @color-on-surface-variant;
+    background-color: transparent;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 8px;
+}
+
+#workspaces button.active {
+    background-color: @color-primary;
+    color: @color-on-primary-container;
+    font-weight: bold;
+}
+
+#workspaces button.focused {
+    background-color: @color-primary-fixed;
+    color: @color-on-primary-container;
+}
+
+#workspaces button.urgent {
+    background-color: @color-critical;
+    color: @color-scrim;
+}
+
+#workspaces button:hover {
+    background-color: @color-secondary-container;
+    color: @color-secondary;
+}
+
+/* ===== Network ===== */
+
+#network {
+    color: @color-tertiary;
+}
+
+#network.disconnected {
+    color: @color-critical;
+}
+
+/* ===== Tray ===== */
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    background-color: @color-critical;
+    border-radius: 100px;
+}
+
+/* ===== Wireplumber (volume) ===== */
+
+#wireplumber {
+    color: @color-secondary;
+}
+
+#wireplumber.muted {
+    color: @color-outline;
+}
+
+/* ===== Battery ===== */
+
+#battery {
+    color: @color-on-surface;
+}
+
+#battery.charging {
+    color: @color-primary-fixed;
+}
+
+#battery.warning:not(.charging) {
+    color: @color-warning;
+}
+
+#battery.critical:not(.charging) {
+    color: @color-critical;
+}
+
+/* ===== Custom / Logout ===== */
+
+#custom-logout {
+    color: @color-tertiary;
+    font-size: 20px;
+    padding: 4px 4px 4px 10px;
+}
+
+#custom-logout:hover {
+    background-color: @color-tertiary;
+    color: @color-surface-container;
+}
+
+/* ===== Tooltips ===== */
+
+tooltip {
+    background-color: @surface_highest;
+    color: @on_surface;
+    border: 1px solid @outline_variant;
+    border-radius: 12px;
+}

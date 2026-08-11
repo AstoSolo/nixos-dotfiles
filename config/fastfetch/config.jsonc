@@ -1,0 +1,36 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "source": "~/.config/fastfetch/nixos-small.txt", // author: https://gist.github.com/MateusAquino
+    "padding": {
+        "top": 1,
+        "left": 0,
+        "right": 2
+    }
+  },
+    "display": {
+        "separator": "",
+        "key": {
+            "width": 12
+        }
+    },
+    "modules": [
+    "break",
+    { "type": "users","key": " user","format": "{name}"},
+    { "type": "os", "key": " distro" },
+    { "type": "kernel", "key": " kernel" },
+    { "type": "terminal", "key": " term" },
+    { "type": "wm", "key": "󰙀 wm" },
+    { "type": "uptime", "key": "󰥔 uptime" },
+    { "type": "disk", "key": " os age",
+      "folders": "/",
+      "format": "{days} days ({create-time:10})"
+    },
+    { "type": "packages", "key": "󰏗 packages"},
+    { "type": "disk", "key": " disk"},
+    { "key": " colors  {#keys}","type": "colors","symbol": "circle"}
+  ]
+}
+
+
