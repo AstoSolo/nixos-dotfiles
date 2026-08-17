@@ -83,6 +83,7 @@
     wget
     git
     kitty
+    firefox
     pavucontrol
     blueman
     helvum

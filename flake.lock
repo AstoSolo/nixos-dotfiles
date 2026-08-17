@@ -139,8 +139,7 @@
         "mangowm": "mangowm",
         "nixpkgs": "nixpkgs",
         "omenctl": "omenctl",
-        "waybar-src": "waybar-src",
-        "zen-browser": "zen-browser"
+        "waybar-src": "waybar-src"
       }
     },
     "scenefx": {
@@ -194,29 +193,6 @@
       "original": {
         "owner": "Alexays",
         "repo": "Waybar",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "home-manager": [
-          "home-manager"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1785915548,
-        "narHash": "sha256-uF+QIxu7hhxKgzh7ai2uWVmeiqJYDC1C4fJ4P/IFZ/k=",
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
-        "rev": "a7504841b8869ef5950c1b71f062ca51ca724a02",
-        "type": "github"
-      },
-      "original": {
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

@@ -17,15 +17,6 @@
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-   
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
-
 
     # Remove when nixrepo update package to support mangowm
     waybar-src = {
@@ -34,7 +25,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, omenctl, mangowm, zen-browser, waybar-src, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, omenctl, mangowm, waybar-src, ... }@inputs: {
 
     nixosConfigurations.nixos-victus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";

@@ -1,10 +1,14 @@
+@import "colors.css";
+
 * {
+    font-family: "Nerd Fonts Jetbrains Mono";
     background-image: none;
     font-size: 16px;
+    font-weight: bold;
 }
 
 window {
-    background-color: rgba(20,20,30,0.4);
+    background-color: alpha(@background, 0.6);
     animation: fadeIn 0.3s ease-in;
 }
 
@@ -14,8 +18,8 @@ window {
 }
 
 button {
-    color: @main-fg;
-    background-color: rgba(20, 20, 30, 0.6);
+    color: @on_primary;
+    background-color: alpha(@primary, 0.6);
     border: none;
     background-repeat: no-repeat;
     background-position: center;
@@ -38,7 +42,7 @@ button:focus {
     background-size: 40%;
 }
 
-/* TEXTO */
+/*text*/
 button label {
     font-size: 13px;
     opacity: 0.6;
@@ -54,29 +58,29 @@ button:focus label {
     opacity: 0;
 }
 
-/* ICONOS */
+/*icons*/
 #lock {
-    background-image: url("~/.config/wlogout/icons/lock.png");
+    background-image: url("icons/lock.png");
 }
 
 #logout {
-    background-image: url("~/.config/wlogout/icons/logout.png");
+    background-image: url("icons/logout.png");
 }
 
 #hibernate {
-    background-image: url("~/.config/wlogout/icons/hibernate.png");
+    background-image: url("icons/hibernate.png");
 }
 
 #shutdown {
-    background-image: url("~/.config/wlogout/icons/shutdown.png");
-    background-color: rgba(255, 80, 80, 0.3);
+    background-image: url("icons/shutdown.png");
+    background-color: @error_container;
 }
 
 #reboot {
-    background-image: url("~/.config/wlogout/icons/reboot.png");
+    background-image: url("icons/reboot.png");
 }
 
 #suspend {
-    background-image: url("/home/astosolo/.config/wlogout/icons/suspend.png");
+    background-image: url("icons/suspend.png");
 }
 

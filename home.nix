@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "astosolo";
@@ -13,9 +13,7 @@
     };
   };
 
-  # home.file.".config/mango".source = ./config/mango;
   home.file.".config/nvim".source = ./config/nvim;
-  # home.file.".config/waybar".source = ./config/waybar;
 
   home.packages = with pkgs; [
     
@@ -55,11 +53,28 @@
     vimAlias = true;
   };
 
-  home.file.".config/matugen/config.toml".source =
-  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/matugen/config.toml";
+  home.pointerCursor =
+  let
+    themeName = "Bibata-Material-Seafoam"; # Change -Grey to other theme from 28 themes here: https://github.com/SakibShahariar/material-bibata-cursor and theme.conf in mango config
+  in {
+    enable = true;
+    gtk.enable = true;
+    x11.enable = true;
+    name = themeName;
+    size = 24;
+    package = pkgs.runCommand "material-bibata-cursor" { } ''
+      mkdir -p $out/share/icons
+      ln -s ${
+        pkgs.fetchzip {
+          url = "https://github.com/SakibShahariar/material-bibata-cursor/releases/download/v1.2.0/bibata-material-v1.2.0.tar.gz";
+          hash = "sha256-6iUHx/Ylz7AzQuofIZvVw8cecv0/h+tCCgfyHQvpecU=";
+        }
+      }/${themeName} $out/share/icons/${themeName}
+    '';
+  };
 
-  home.file.".config/matugen/templates".source =
-  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/matugen/templates";
+  home.file.".config/matugen/".source =
+  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/matugen/";
 
   home.file.".config/mango/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/mango/";
@@ -78,7 +93,6 @@
 
   home.file.".config/kitty/kitty.conf".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/kitty/kitty.conf";
-
 
   xdg.portal = {
     enable = true;

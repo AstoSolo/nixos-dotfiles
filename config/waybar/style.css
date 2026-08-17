@@ -15,8 +15,6 @@ window#waybar {
   background: @background;
   font-family: "Nerd Fonts Jetbrains Mono";
   font-size: 11pt;
-  font-weight: bold;
-
 }
 
 #clock {
