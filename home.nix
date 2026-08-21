@@ -40,6 +40,9 @@
     adwaita-icon-theme
     matugen
 
+    wl-clipboard
+    cliphist
+
     # Desktop portal
     xdg-desktop-portal
     xdg-desktop-portal-wlr
