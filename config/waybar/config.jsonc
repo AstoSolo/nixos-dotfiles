@@ -230,6 +230,6 @@
         "format": "󱄅",
         "icon-size": 16,
         "tooltip": false,
-        "on-click": "wlogout"
+        "on-click": "wleave"
     }
 }

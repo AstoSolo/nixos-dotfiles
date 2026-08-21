@@ -34,7 +34,8 @@
     fuzzel
     awww
     waybar
-    wlogout
+    mako
+    wleave
 
     adwaita-icon-theme
     matugen
@@ -55,7 +56,7 @@
 
   home.pointerCursor =
   let
-    themeName = "Bibata-Material-Seafoam"; # Change -Grey to other theme from 28 themes here: https://github.com/SakibShahariar/material-bibata-cursor and theme.conf in mango config
+    themeName = "Bibata-Material-Seafoam"; # Change -Seafoam to other theme from 28 themes here: https://github.com/SakibShahariar/material-bibata-cursor and theme.conf in mango config
   in {
     enable = true;
     gtk.enable = true;
@@ -73,11 +74,16 @@
     '';
   };
 
+
+
   home.file.".config/matugen/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/matugen/";
 
   home.file.".config/mango/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/mango/";
+
+  home.file.".config/fuzzel/".source =
+  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/fuzzel/";
 
   home.file.".config/waybar/config.jsonc".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/waybar/config.jsonc";
