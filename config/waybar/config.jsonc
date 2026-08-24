@@ -24,8 +24,7 @@
         "mango/language",
         "bluetooth",
         "network",
-        "battery",
-        "custom/logout"
+        "battery"
     ],
 
     "group/expand": {
@@ -224,12 +223,4 @@
             "default": ["", " ", " "]
         }
     },
-
-    "custom/logout": {
-        /*"format": "<span foreground='#7EBAE4'>󱄅</span>{}",*/
-        "format": "󱄅",
-        "icon-size": 16,
-        "tooltip": false,
-        "on-click": "wleave"
-    }
 }

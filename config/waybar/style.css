@@ -41,8 +41,7 @@ window#waybar {
 #language,
 #bluetooth,
 #network,
-#battery,
-#custom-logout {
+#battery {
   background-color: @surface_container;
   color: @on_surface;
   border-radius: 8px;
@@ -93,17 +92,6 @@ window#waybar {
 
 #workspaces button.overview {
   color: @on_surface;
-}
-
-/* === Logout === */
-#custom-logout {
-  font-size: 16px;
-  padding: 2px 8px 2px 4px;
-  margin: 4px 2px;
-}
-
-#custom-logout:hover {
-  background-color: @surface_container_high;
 }
 
 #tray{

@@ -36,7 +36,6 @@
     awww
     waybar
     mako
-    wleave
 
     glib
     gsettings-desktop-schemas
