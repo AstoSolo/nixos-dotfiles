@@ -77,6 +77,7 @@
   };
 
   programs.mango.enable = true;
+  programs.dconf.enable = true;
   
   environment.systemPackages = with pkgs; [ 
     vim
@@ -91,7 +92,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-];
+  ];
 
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";

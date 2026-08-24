@@ -25,6 +25,7 @@
     discord
     steam
     prismlauncher
+    nicotine-plus
 
     fastfetch
     fetch
@@ -37,6 +38,8 @@
     mako
     wleave
 
+    glib
+    gsettings-desktop-schemas
     adwaita-icon-theme
     matugen
 
@@ -77,7 +80,26 @@
     '';
   };
 
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
+  };
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "adw-gtk3-dark";
+    };
+  };
 
   home.file.".config/matugen/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/matugen/";
@@ -90,6 +112,12 @@
 
   home.file.".config/waybar/config.jsonc".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/waybar/config.jsonc";
+
+  home.file.".config/gtk-3.0/gtk.css".source =
+  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/gtk-3.0/gtk.css";
+
+  home.file.".config/gtk-4.0/gtk.css".source =
+  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/gtk-4.0/gtk.css";
 
   home.file.".config/waybar/style.css".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/waybar/style.css";
@@ -105,10 +133,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-gtk
-    ];
-    config.common.default = "*"; 
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
+    config.common.default = [ "gtk" ];
   };
 }
