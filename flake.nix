@@ -4,9 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; 
 
-    omenctl.url = "github:yunusemreyl/OmenCtl";
-    omenctl.inputs.nixpkgs.follows = "nixpkgs"; 
-
+    omenctl = {
+    url = "github:yunusemreyl/OmenCtl";
+    inputs.nixpkgs.follows = "nixpkgs"; 
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";

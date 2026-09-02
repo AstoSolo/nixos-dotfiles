@@ -36,6 +36,7 @@
     awww
     waybar
     mako
+    veila
 
     glib
     gsettings-desktop-schemas
@@ -124,11 +125,12 @@
   home.file.".config/fastfetch/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/fastfetch/";
 
-  home.file.".config/wlogout/".source =
-  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/wlogout/";
-
   home.file.".config/kitty/kitty.conf".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/kitty/kitty.conf";
+
+  home.file.".config/mako/".source =
+  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/mako/";
+
 
   xdg.portal = {
     enable = true;

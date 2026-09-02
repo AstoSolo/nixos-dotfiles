@@ -30,8 +30,8 @@ input_path = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/themes/Matugen.conf'
 post_hook = "kitty +kitten themes --reload-in=all Matugen"
 
-[templates.wlogout]
-input_path = '~/.config/matugen/templates/wlogout.css'
-output_path = '~/.config/wlogout/colors.css'
-
+[templates.mako]
+input_path = '~/.config/matugen/templates/mako'
+output_path = '~/.config/mako/mako-colors'
+post_hook = 'makoctl reload'
 
