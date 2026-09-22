@@ -14,7 +14,7 @@
         /+Windows
           //Windows
             protocol: efi
-            path: uuid(0144d536-c245-416f-b540-6c55bfdac959):/EFI/Microsoft/Boot/bootmgfw.efi
+            path: fslabel(WINBOOT):/EFI/Microsoft/Boot/bootmgfw.efi
       '';
 
   networking.hostName = "nixos-victus";

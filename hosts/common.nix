@@ -65,7 +65,7 @@
 
   users.users.astosolo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
     packages = with pkgs; [
       tree
     ];
@@ -89,6 +89,7 @@
     blueman
     helvum
     veila
+    ntfs3g
   ];
 
   security.pam.services.veila = {};
@@ -103,6 +104,6 @@
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.stateVersion = "26.05";
+  system.stateVersion = "26.11";
 
 }

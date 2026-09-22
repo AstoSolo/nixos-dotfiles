@@ -1,11 +1,10 @@
 [config]
 reload_apps = true
 
-
 [templates.mango]
 input_path = '~/.config/matugen/templates/mango.conf'
 output_path = '~/.config/mango/colors.conf'
-# post_hook = 'mmsg -d reload_config'
+post_hook = 'mmsg dispatch reload_config'
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'

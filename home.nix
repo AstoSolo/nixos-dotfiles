@@ -4,6 +4,14 @@
   home.username = "astosolo";
   home.homeDirectory = "/home/astosolo";
 
+  programs.git = {
+  enable = true;
+  settings.user = {
+    name  = "AstoSolo";
+    email = "adstosolus@gmail.com";
+    };
+  };
+
   home.stateVersion = "26.05";
 
   programs.bash = {
@@ -25,14 +33,22 @@
     discord
     steam
     prismlauncher
-    nicotine-plus
 
     fastfetch
     fetch
     btop
 
+    # Study, hobby stuff
+    obsidian
+    orca-slicer
+    nicotine-plus
+    softmaker-office
+    teams-for-linux
+
+
     # Quick start apps
     fuzzel
+    rofi
     awww
     waybar
     mako
