@@ -5,11 +5,12 @@
   home.homeDirectory = "/home/astosolo";
 
   programs.git = {
-  enable = true;
-  settings.user = {
-    name  = "AstoSolo";
-    email = "adstosolus@gmail.com";
-    };
+    enable = true;
+    settings = {
+      user.name  = "AstoSolo";
+      user.email = "adstosolus@gmail.com";
+      
+      };
   };
 
   home.stateVersion = "26.05";
@@ -31,6 +32,7 @@
     rar
 
     discord
+    materialgram
     steam
     prismlauncher
 
@@ -48,11 +50,14 @@
 
     # Quick start apps
     fuzzel
-    rofi
     awww
     waybar
     mako
     veila
+    rofi
+    grim
+    slurp
+    satty
 
     glib
     gsettings-desktop-schemas
@@ -146,6 +151,12 @@
 
   home.file.".config/mako/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/mako/";
+
+  #home.file.".config/xdg-desktop-portal/".source =
+  #config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/xdg-desktop-portal/";
+
+  home.file.".config/xdg-desktop-portal-wlr/".source =
+  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/xdg-desktop-portal-wlr/";
 
 
   xdg.portal = {
