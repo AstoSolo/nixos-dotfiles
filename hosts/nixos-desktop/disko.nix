@@ -3,14 +3,14 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/nvme0n1";
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
               label = "NIXBOOT";
               name = "ESP";
-              size = "2G";
+              size = "4G";
               type = "EF00";
               content = {
                 type = "filesystem";
