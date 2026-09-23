@@ -90,6 +90,7 @@
     helvum
     veila
     ntfs3g
+    disko
   ];
 
   security.pam.services.veila = {};
