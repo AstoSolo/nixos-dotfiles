@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Remove when nixrepo update package to support mangowm
     waybar-src = {
       url = "github:Alexays/Waybar";
@@ -26,7 +31,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, omenctl, mangowm, waybar-src, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, omenctl, mangowm, disko, waybar-src, ... }@inputs: {
 
     nixosConfigurations = {
 
@@ -49,6 +54,7 @@
             ];
           }
 
+	  disko.nixosModules.disko
           ./hosts/nixos-desktop/configuration.nix
           mangowm.nixosModules.mango
           home-manager.nixosModules.home-manager

@@ -22,6 +22,21 @@
     };
   };
 
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "tty";
+      theme_background = false;
+
+      shown_boxes = "cpu mem net proc gpu0";
+
+      show_gpu_info = "Auto";
+      shown_gpus = "nvidia amd intel apple";
+      gpu_mirror_graph = true;
+      graph_symbol_gpu = "default";
+    };
+  };
+
   home.file.".config/nvim".source = ./config/nvim;
 
   home.packages = with pkgs; [
@@ -44,7 +59,7 @@
     obsidian
     orca-slicer
     nicotine-plus
-    softmaker-office
+    libreoffice
     teams-for-linux
 
 
@@ -58,6 +73,8 @@
     grim
     slurp
     satty
+    impala
+    wiremix
 
     glib
     gsettings-desktop-schemas
