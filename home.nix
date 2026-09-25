@@ -46,7 +46,7 @@
     zip
     rar
 
-    discord
+    vesktop
     obs-studio
     materialgram
     steam
@@ -170,8 +170,8 @@
   home.file.".config/mako/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/mako/";
 
-  #home.file.".config/xdg-desktop-portal/".source =
-  #config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/xdg-desktop-portal/";
+  home.file.".config/xdg-desktop-portal/".source =
+  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/xdg-desktop-portal/";
 
   home.file.".config/xdg-desktop-portal-wlr/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/xdg-desktop-portal-wlr/";
