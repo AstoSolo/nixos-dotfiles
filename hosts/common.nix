@@ -60,9 +60,15 @@
         ];
      };
   };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+    config.common.default = [ "wlr" "gtk" ];
+  };
+  systemd.user.services.xdg-desktop-portal-wlr.path = [ pkgs.fuzzel pkgs.slurp ];
   
-
-
   users.users.astosolo = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];

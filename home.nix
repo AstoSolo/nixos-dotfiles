@@ -47,6 +47,7 @@
     rar
 
     discord
+    obs-studio
     materialgram
     steam
     prismlauncher
@@ -174,11 +175,4 @@
 
   home.file.".config/xdg-desktop-portal-wlr/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/xdg-desktop-portal-wlr/";
-
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
-    config.common.default = [ "gtk" ];
-  };
 }
