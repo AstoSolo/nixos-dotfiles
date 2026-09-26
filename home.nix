@@ -57,6 +57,7 @@
     btop
 
     # Study, hobby stuff
+    gimp-with-plugins
     obsidian
     orca-slicer
     nicotine-plus
