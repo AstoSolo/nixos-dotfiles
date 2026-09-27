@@ -73,6 +73,7 @@
     veila
     rofi
     grim
+    wayfreeze
     slurp
     satty
     impala
