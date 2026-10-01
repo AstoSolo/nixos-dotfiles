@@ -97,6 +97,7 @@
     veila
     ntfs3g
     disko
+    efibootmgr
   ];
 
   security.pam.services.veila = {};

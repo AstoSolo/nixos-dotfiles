@@ -7,8 +7,13 @@
       ./hardware-configuration.nix
     ];
 
+  #Windows partition
+  fileSystems."/mnt/Windows" = {
+    device = "/dev/disk/by-label/WINDOWS";
+    fsType = "ntfs-3g";
+    options = [ "defaults" "uid=1000" "gid=100" "nofail" "x-gvfs-show" ];
+  };
 
-  boot.loader.limine.efiInstallAsRemovable = true;
   #Windows entry
   boot.loader.limine.extraEntries = ''
         /+Windows
@@ -16,6 +21,8 @@
             protocol: efi
             path: fslabel(WINBOOT):/EFI/Microsoft/Boot/bootmgfw.efi
       '';
+
+  boot.loader.limine.efiInstallAsRemovable = true;
 
   networking.hostName = "nixos-victus";
   networking.networkmanager.enable = true;

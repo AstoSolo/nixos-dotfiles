@@ -64,6 +64,21 @@
     libreoffice
     teams-for-linux
 
+    #clion
+    (symlinkJoin {
+      name = "clion";
+      paths = [ jetbrains.clion ];
+      nativeBuildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/clion \
+          --prefix LD_LIBRARY_PATH : ${stdenv.cc.cc.lib}/lib
+      '';
+    })
+    gcc
+    cmake
+    ninja
+    gdb
+
 
     # Quick start apps
     fuzzel
