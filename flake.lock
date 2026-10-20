@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789770686,
-        "narHash": "sha256-uZkBR7yHdIKUFB5SZdfgh1qkGfI3XmYmI/lTiquxbck=",
+        "lastModified": 1792522401,
+        "narHash": "sha256-r3C+5Gk2ex6Q2ZX3tgTbOHyKBYLYD+bmunnvebErqZA=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "725ea35e410ad83be4931d1bff7e090eacaf3563",
+        "rev": "fb50c22daa522e9a155ff18f9730ec6013e3fc7d",
         "type": "github"
       },
       "original": {
@@ -60,6 +60,24 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1791914995,
+        "narHash": "sha256-Zf/xfQEAasnwnmEfHqW/4hjDE/s44yn2hD4RuVIZRjA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b7a79d3fea1e214f6d668d521cecec0c01e26544",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -67,11 +85,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785531816,
-        "narHash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik=",
+        "lastModified": 1792495086,
+        "narHash": "sha256-TyoYH983Nsc++1scw0SoOEKshPSJWJDxK7tTmuZ974M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bf9ce9fec78f95f374e8dd3b503863a3ec128ebe",
+        "rev": "ec80131710bffcdf3b8498cf41f3a0579833b023",
         "type": "github"
       },
       "original": {
@@ -89,11 +107,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1785911037,
-        "narHash": "sha256-b3/UuGXW8XN3jOaCKF6Ks7ANOjuLzEwjGgHZrglFQ6s=",
+        "lastModified": 1792498552,
+        "narHash": "sha256-Axzqrvygbe95z+j+RxcnfXJ/8J3Z7MGNb24xiwR8qxQ=",
         "owner": "mangowm",
         "repo": "mango",
-        "rev": "8fed0fa962479a23d0670a20c63dd4a20e106f5c",
+        "rev": "ce0a30a2f5a8deb19880825c13e3cd04c47a7d7d",
         "type": "github"
       },
       "original": {
@@ -104,11 +122,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1785828668,
-        "narHash": "sha256-8fsyqeO+mJqvIzeO4xIpgJe/f7MTbbVTEC6RT6WSXNs=",
+        "lastModified": 1792502884,
+        "narHash": "sha256-IoNisKcGbUjdd45qCqywGMCYmZ5EnkxezvLII0FWwNA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e72e4f299401a3689d4b3d5fc6496b11db7064eb",
+        "rev": "02c087f3fe673c9e317f206a627cb6b910336dbe",
         "type": "github"
       },
       "original": {
@@ -135,16 +153,17 @@
     },
     "omenctl": {
       "inputs": {
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1785452496,
-        "narHash": "sha256-bLnmOExLor2EX/wIiM0hC/LbKaPwDUYzu+6H39IUHYA=",
+        "lastModified": 1792444285,
+        "narHash": "sha256-zwwIm0RAQHfYDbV+ln5CbfbJko6s9VHUTqWzn0ZjqN8=",
         "owner": "yunusemreyl",
         "repo": "OmenCtl",
-        "rev": "397d30024cf235722b4a5d27efa8dbdc493dc16e",
+        "rev": "3c090d15df61bcd90f2dd1a07cd320588ce24d0f",
         "type": "github"
       },
       "original": {
@@ -201,14 +220,29 @@
         "type": "github"
       }
     },
+    "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "waybar-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1785791220,
-        "narHash": "sha256-POvwObPOp6O14n6KYWNLp2Y3paunA5f8U1NCaodNFcc=",
+        "lastModified": 1792445369,
+        "narHash": "sha256-mBDWjeeIuFfDZQuBxHu+EpbJ+GMbbSxpRz0WVM2N+ZI=",
         "owner": "Alexays",
         "repo": "Waybar",
-        "rev": "084d87401d0a91182c16aa7e5f674a7dde767185",
+        "rev": "c15ec02ede4343592a59eb5c2ff4443c9c045f7c",
         "type": "github"
       },
       "original": {

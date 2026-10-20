@@ -85,6 +85,15 @@
   programs.mango.enable = true;
   programs.dconf.enable = true;
   
+  services.gvfs.enable = true;
+
+  services.zerotierone = {
+  enable = true;
+  joinNetworks = [
+    "2873fd00f2e59695"
+  ];
+};
+
   environment.systemPackages = with pkgs; [ 
     vim
     wget

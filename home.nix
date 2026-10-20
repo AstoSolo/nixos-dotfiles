@@ -40,17 +40,23 @@
   home.file.".config/nvim".source = ./config/nvim;
 
   home.packages = with pkgs; [
-    
+    qbittorrent
     thunar
-    unzip
+    peazip
+    p7zip
     zip
-    rar
+    unzip
+    unrar
+    libunarr
 
     vesktop
     obs-studio
-    materialgram
+    easyeffects
     steam
+    protontricks
     prismlauncher
+    lutris
+    mangohud
 
     fastfetch
     fetch
@@ -79,6 +85,8 @@
     ninja
     gdb
 
+    python314
+
 
     # Quick start apps
     fuzzel
@@ -94,6 +102,9 @@
     impala
     wiremix
 
+    # Rice start packages
+    quickshell
+
     glib
     gsettings-desktop-schemas
     adwaita-icon-theme
@@ -108,6 +119,7 @@
     xdg-desktop-portal-gtk
 
   ];
+
 
   programs.neovim = {
     enable = true;
@@ -192,4 +204,5 @@
 
   home.file.".config/xdg-desktop-portal-wlr/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/xdg-desktop-portal-wlr/";
+
 }
