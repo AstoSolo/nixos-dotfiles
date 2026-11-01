@@ -87,6 +87,8 @@
   
   services.gvfs.enable = true;
 
+  services.hardware.openrgb.enable = true;
+
   services.zerotierone = {
   enable = true;
   joinNetworks = [
@@ -113,6 +115,16 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+
+    (runCommand "tabler-icons-font" {
+      src = fetchzip {
+        url = "https://registry.npmjs.org/@tabler/icons-webfont/-/icons-webfont-3.49.0.tgz";
+        hash = "sha256-LGqMm1HfC3qp3K/h2NbsOg4Dudgy4WMsllkLXvSIJjs=";
+      };
+    } ''
+      install -Dm644 $src/dist/fonts/tabler-icons.ttf \
+        $out/share/fonts/truetype/tabler-icons.ttf
+    '')
   ];
 
   nix.gc.automatic = true;

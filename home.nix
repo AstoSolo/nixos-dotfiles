@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
+  imports = [ ./home/modules ];
+
+
   home.username = "astosolo";
   home.homeDirectory = "/home/astosolo";
 
@@ -22,23 +25,6 @@
     };
   };
 
-  programs.btop = {
-    enable = true;
-    settings = {
-      color_theme = "tty";
-      theme_background = false;
-
-      shown_boxes = "cpu mem net proc gpu0";
-
-      show_gpu_info = "Auto";
-      shown_gpus = "nvidia amd intel apple";
-      gpu_mirror_graph = true;
-      graph_symbol_gpu = "default";
-    };
-  };
-
-  home.file.".config/nvim".source = ./config/nvim;
-
   home.packages = with pkgs; [
     qbittorrent
     thunar
@@ -50,9 +36,11 @@
     libunarr
 
     vesktop
+    cliamp
     obs-studio
     easyeffects
     steam
+    ayugram-desktop
     protontricks
     prismlauncher
     lutris
@@ -60,12 +48,13 @@
 
     fastfetch
     fetch
-    btop
+    openrgb-with-all-plugins
 
     # Study, hobby stuff
     gimp-with-plugins
     obsidian
     orca-slicer
+    spotiflac
     nicotine-plus
     libreoffice
     teams-for-linux
@@ -84,7 +73,6 @@
     cmake
     ninja
     gdb
-
     python314
 
 
@@ -119,14 +107,6 @@
     xdg-desktop-portal-gtk
 
   ];
-
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
 
   home.pointerCursor =
   let
@@ -169,11 +149,17 @@
     };
   };
 
+
+  home.file.".config/nvim".source = ./config/nvim;
+
   home.file.".config/matugen/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/matugen/";
 
   home.file.".config/mango/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/mango/";
+
+  home.file.".config/quickshell/".source =
+  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/quickshell/";
 
   home.file.".config/fuzzel/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/fuzzel/";

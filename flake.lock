@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "cliamp": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792702297,
+        "narHash": "sha256-ZBEhhNeMourspDu606lh5Pw0M9XXvpjtZehRrKsG3TI=",
+        "owner": "bjarneo",
+        "repo": "cliamp",
+        "rev": "02309c909a5e920002a5c20cc57a00c075e6b27d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bjarneo",
+        "repo": "cliamp",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -174,6 +194,7 @@
     },
     "root": {
       "inputs": {
+        "cliamp": "cliamp",
         "disko": "disko",
         "home-manager": "home-manager",
         "mangowm": "mangowm",

@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    cliamp = {
+      url = "github:bjarneo/cliamp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Remove when nixrepo update package to support mangowm
     waybar-src = {
       url = "github:Alexays/Waybar";
