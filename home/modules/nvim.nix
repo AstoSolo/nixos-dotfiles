@@ -10,15 +10,15 @@
     plugins = with pkgs.vimPlugins; [
       nvim-tree-lua              
       nvim-web-devicons          
-      lualine-nvim               # статусная строка
-      bufferline-nvim            # вкладки буферов
-      telescope-nvim plenary-nvim  # поиск
-      nvim-treesitter.withAllGrammars  # подсветка
-      gitsigns-nvim              # git в колонке
-      which-key-nvim             # подсказки хоткеев
-      nvim-autopairs             # автоскобки
-      nvim-lspconfig             # LSP
-      blink-cmp                  # автодополнение
+      lualine-nvim
+      bufferline-nvim
+      telescope-nvim plenary-nvim
+      nvim-treesitter.withAllGrammars
+      gitsigns-nvim
+      which-key-nvim
+      nvim-autopairs
+      nvim-lspconfig
+      blink-cmp
     ];
 
     extraPackages = with pkgs; [
