@@ -1,36 +1,28 @@
-{ inputs, config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
+  imports = [
+    ./modules/ly.nix
+    ./modules/virtualisation.nix
+  ];
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   #Bootloader
   boot.loader.efi.canTouchEfiVariables = true;
   #limine boot
   boot.loader = {
+    timeout = 3;
     limine = {
       enable = true;
       maxGenerations = 10;
       style.wallpaperStyle = "centered";
-      style.wallpapers = lib.filesystem.listFilesRecursive ../limine-images;
-      extraConfig = ''
-        timeout: 3
-        default_entry: 2
-      '';
+      style.wallpapers = lib.filesystem.listFilesRecursive ../assets/limine;
     };
-  };
-
-  # Display manager
-  services.displayManager.ly.enable = true;
-  services.xserver = {
-    enable = true;
-    autoRepeatDelay = 200;
-    autoRepeatInterval = 35;
-    windowManager.qtile.enable = true;
   };
 
   time.timeZone = "Asia/Almaty";
   i18n.defaultLocale = "en_US.UTF-8";
-
 
   # Pipewire & Bluetooth
   security.rtkit.enable = true;
@@ -105,13 +97,10 @@
     pavucontrol
     blueman
     helvum
-    veila
     ntfs3g
     disko
     efibootmgr
   ];
-
-  security.pam.services.veila = {};
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

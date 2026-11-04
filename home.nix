@@ -36,7 +36,6 @@
     libunarr
 
     vesktop
-    cliamp
     obs-studio
     easyeffects
     steam
@@ -51,12 +50,12 @@
     openrgb-with-all-plugins
 
     # Study, hobby stuff
-    gimp-with-plugins
+    wordcraft
+    photocraft
     obsidian
     orca-slicer
     spotiflac
     nicotine-plus
-    libreoffice
     teams-for-linux
 
     #clion
