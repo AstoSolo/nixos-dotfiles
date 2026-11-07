@@ -4,11 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    omenctl = {
-      url = "github:yunusemreyl/OmenCtl";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    omen-space = {
+      url = "github:yunusemreyl/omen-space";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Remove when nixrepo update package to support mangowm
     waybar-src = {
       url = "github:Alexays/Waybar";
@@ -36,7 +36,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, omenctl, mangowm, disko, waybar-src, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, mangowm, disko, omen-space, waybar-src, ... }@inputs: {
 
     nixosConfigurations = {
 
@@ -60,14 +60,14 @@
           }
 
 	  disko.nixosModules.disko
-          ./hosts/nixos-desktop/configuration.nix
+          ./system/hosts/nixos-desktop/configuration.nix
           mangowm.nixosModules.mango
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.astosolo = import ./home.nix;
+              users.astosolo = import ./home/home.nix;
               backupFileExtension = "backup";
             };
           }
@@ -93,15 +93,14 @@
             ];
           }
 
-          ./hosts/nixos-victus/configuration.nix
-          omenctl.nixosModules.default
+          ./system/hosts/nixos-victus/configuration.nix
           mangowm.nixosModules.mango
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.astosolo = import ./home.nix;
+              users.astosolo = import ./home/home.nix;
               backupFileExtension = "backup";
             };
           }

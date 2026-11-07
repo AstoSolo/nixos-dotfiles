@@ -1,9 +1,10 @@
-{ inputs, config, lib, pkgs, ... }:
+{ config, ... }:
 
 {
   imports =
     [
-      ../common.nix
+      ../../default.nix
+      ../../modules/omen-space.nix
       ./hardware-configuration.nix
     ];
 
@@ -27,16 +28,28 @@
   networking.hostName = "nixos-victus";
   networking.networkmanager.enable = true;
 
+  hardware.omen-space = {
+    rgb = {
+      mode = "static";            # breathing, wave, rainbow, aurora, ...
+      colors = [ "00FFAA" ];
+      brightness = 70;
+    };
+
+    undervolt = {
+      curveOptimizer = -10;       # -30..30
+      tccOffset = 0;              # max temp = 100 - offset
+    };
+
+    power.limits = {
+      enable = true;              
+      pl1 = 45;
+      pl2 = 115;
+    };
+  };
 
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
   services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
-
-  programs.omenctl = {
-    enable = true;
-    loadCustomDriver = true; # Loads the custom hp-wmi and hp-rgb-lighting kernel modules
-  };
-
   
   # Nvidia
   hardware.nvidia = {
@@ -51,8 +64,5 @@
       nvidiaBusId = "PCI:1:0:0";
     };
   };
-
-  environment.systemPackages = [     
-  ];
 }
 

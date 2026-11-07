@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./home/modules ];
-
+  imports = [ ./modules ];
 
   home.username = "astosolo";
   home.homeDirectory = "/home/astosolo";
@@ -149,7 +148,7 @@
   };
 
 
-  home.file.".config/nvim".source = ./config/nvim;
+  home.file.".config/nvim".source = ../config/nvim;
 
   home.file.".config/matugen/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/matugen/";

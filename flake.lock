@@ -171,7 +171,7 @@
         "type": "github"
       }
     },
-    "omenctl": {
+    "omen-space": {
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
@@ -182,13 +182,13 @@
         "lastModified": 1793137079,
         "narHash": "sha256-cMljuZjIEmxUKehFNce8fkcbIo2NscianlkyYaEltrs=",
         "owner": "yunusemreyl",
-        "repo": "OmenCtl",
+        "repo": "omen-space",
         "rev": "0abfad267822f27c54fc893ab52b8fe4383c7c1a",
         "type": "github"
       },
       "original": {
         "owner": "yunusemreyl",
-        "repo": "OmenCtl",
+        "repo": "omen-space",
         "type": "github"
       }
     },
@@ -199,7 +199,7 @@
         "home-manager": "home-manager",
         "mangowm": "mangowm",
         "nixpkgs": "nixpkgs",
-        "omenctl": "omenctl",
+        "omen-space": "omen-space",
         "waybar-src": "waybar-src"
       }
     },

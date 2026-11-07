@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ../common.nix
+      ../../default.nix
       ./hardware-configuration.nix
       ./disko.nix
     ];
