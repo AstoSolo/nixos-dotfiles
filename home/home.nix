@@ -26,13 +26,14 @@
 
   home.packages = with pkgs; [
     qbittorrent
-    thunar
     peazip
     p7zip
     zip
     unzip
     unrar
     libunarr
+    swayimg
+    mpv
 
     vesktop
     obs-studio
@@ -56,6 +57,10 @@
     spotiflac
     nicotine-plus
     teams-for-linux
+    yoinks
+    yt-dlp
+    ffmpeg
+    freecad
 
     #clion
     (symlinkJoin {

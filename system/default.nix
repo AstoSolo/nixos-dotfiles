@@ -31,7 +31,6 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      jack.enable = true;
     };
 
   hardware.bluetooth = {
@@ -77,6 +76,8 @@
   programs.mango.enable = true;
   programs.dconf.enable = true;
   
+  programs.thunar.enable = true;
+  services.tumbler.enable = true;
   services.gvfs.enable = true;
 
   services.hardware.openrgb.enable = true;
@@ -100,6 +101,15 @@
     ntfs3g
     disko
     efibootmgr
+
+    ffmpegthumbnailer
+    webp-pixbuf-loader
+    (writeTextDir "share/thumbnailers/audio-cover.thumbnailer" ''
+      [Thumbnailer Entry]
+      TryExec=ffmpegthumbnailer
+      Exec=ffmpegthumbnailer -i %i -o %o -s %s -m
+      MimeType=audio/flac;audio/x-flac;audio/mpeg;audio/ogg;audio/mp4;audio/x-m4a;
+    '')
   ];
 
   fonts.packages = with pkgs; [

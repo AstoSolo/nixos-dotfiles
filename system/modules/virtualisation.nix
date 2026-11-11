@@ -14,6 +14,7 @@
   environment.systemPackages = with pkgs; [
     virt-viewer
     virtio-win
+    virtiofsd
     win-spice
   ];
 

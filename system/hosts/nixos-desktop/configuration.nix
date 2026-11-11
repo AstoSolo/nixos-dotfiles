@@ -14,8 +14,17 @@
     options = [ "defaults" "uid=1000" "gid=100" ];
   };
   
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelParams = [ "video=DP-3:1920x1080@60" ];
+  boot.initrd.kernelModules = [ "vfio_pci" "vfio" "vfio_iommu_type1" "amdgpu" ];
+  boot.kernelParams = [
+    "video=DP-3:1920x1080@60"
+    "amd_iommu=on" "iommu=pt"
+    "vfio-pci.ids=1002:1638,1002:1637"   # iGPU Cezanne + HDMI-audio
+    ];
+  
+  boot.extraModprobeConfig = ''
+    softdep amdgpu pre: vfio-pci
+    softdep snd_hda_intel pre: vfio-pci
+  '';
 
   boot.loader.limine = {
     efiInstallAsRemovable = true;
