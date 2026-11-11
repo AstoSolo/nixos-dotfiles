@@ -200,6 +200,9 @@
   home.file.".config/mako/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/mako/";
 
+  home.file.".config/OpenTabletDriver".source =
+  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/opentabletdriver";
+
   home.file.".config/xdg-desktop-portal/".source =
   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/config/xdg-desktop-portal/";
 

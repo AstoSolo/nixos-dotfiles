@@ -63,7 +63,7 @@
   
   users.users.astosolo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "uinput" "input" ];
     packages = with pkgs; [
       tree
     ];
@@ -103,6 +103,10 @@
   services.gvfs.enable = true;
 
   services.hardware.openrgb.enable = true;
+
+  hardware.opentabletdriver.enable = true;
+  hardware.uinput.enable = true;
+  systemd.user.services.opentabletdriver.unitConfig.ConditionEnvironment = lib.mkForce [ ];
 
   services.zerotierone = {
   enable = true;
