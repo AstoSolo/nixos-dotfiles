@@ -87,7 +87,8 @@
     };
   };
 
-
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.ly.enableGnomeKeyring = true; 
 
   programs.fish.enable = true;
   users.extraUsers.astosolo = {
