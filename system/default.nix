@@ -1,8 +1,9 @@
-{ lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
 {
   imports = [
     ./modules/ly.nix
+    ./modules/age.nix
     ./modules/virtualisation.nix
   ];
 
@@ -68,6 +69,26 @@
     ];
   };
 
+  networking.networkmanager.ensureProfiles = {
+    environmentFiles = [ config.age.secrets.wifi.path ];
+
+    profiles = {
+      home = {
+        connection = { id = "home"; type = "wifi"; };
+        wifi = { ssid = "Static_Bloom"; mode = "infrastructure"; };
+        wifi-security = { key-mgmt = "wpa-psk"; psk = "$WIFI_HOME_PSK"; };
+      };
+
+      phone = {
+        connection = { id = "phone"; type = "wifi"; };
+        wifi = { ssid = "Pixel_2061"; mode = "infrastructure"; };
+        wifi-security = { key-mgmt = "wpa-psk"; psk = "$WIFI_PHONE_PSK"; };
+      };
+    };
+  };
+
+
+
   programs.fish.enable = true;
   users.extraUsers.astosolo = {
     shell = pkgs.fish;
@@ -110,6 +131,8 @@
       Exec=ffmpegthumbnailer -i %i -o %o -s %s -m
       MimeType=audio/flac;audio/x-flac;audio/mpeg;audio/ogg;audio/mp4;audio/x-m4a;
     '')
+
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   fonts.packages = with pkgs; [

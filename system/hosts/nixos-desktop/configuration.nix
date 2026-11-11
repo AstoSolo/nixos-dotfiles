@@ -19,6 +19,7 @@
     "video=DP-3:1920x1080@60"
     "amd_iommu=on" "iommu=pt"
     "vfio-pci.ids=1002:1638,1002:1637"   # iGPU Cezanne + HDMI-audio
+    "vfio-pci.disable_idle_d3=1"
     ];
   
   boot.extraModprobeConfig = ''

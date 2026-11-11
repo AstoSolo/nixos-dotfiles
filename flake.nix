@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     cliamp = {
       url = "github:bjarneo/cliamp";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +41,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, mangowm, disko, omen-space, waybar-src, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, mangowm, disko, agenix, omen-space, waybar-src, ... }@inputs: {
 
     nixosConfigurations = {
 
@@ -59,7 +64,8 @@
             ];
           }
 
-	  disko.nixosModules.disko
+	        disko.nixosModules.disko
+          agenix.nixosModules.default
           ./system/hosts/nixos-desktop/configuration.nix
           mangowm.nixosModules.mango
           home-manager.nixosModules.home-manager
@@ -93,6 +99,7 @@
             ];
           }
 
+          agenix.nixosModules.default
           ./system/hosts/nixos-victus/configuration.nix
           mangowm.nixosModules.mango
           home-manager.nixosModules.home-manager
